@@ -1,0 +1,60 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+$image: url(images/background-desktop.png);
+$text-color: white;
+$sensitive: rgb(216, 99, 27);
+$font: Helvetica;
+$topic: x-large;
+$secure: 12px;
+$zindex: 10px;
+
+body {
+  background-image : $image;
+  font-family: $font;
+  .svg-bottom{
+    position: fixed;
+    bottom: -175px;
+    left: 11px;
+    z-index: 20px;
+  }
+  .svg-top{
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 20px;
+  }
+  .lines{
+    z-index: $zindex;
+    position: fixed;
+  }
+  .circle{
+    position: absolute;
+    right: 50px;
+    bottom: 60px;
+  }
+  
+}
+
+#container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: $text-color;
+  gap: 18px;
+  word-spacing: 8px;
+  text-align: center;
+  width: 400px;
+  margin: auto;
+
+  .topic{
+    font-size: $topic;
+  }
+  .secure{
+    font-size: $secure;
+  
+  }
+}
+ 

@@ -1,0 +1,51 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url(images/background-desktop.png);
+  font-family: Helvetica;
+}
+body .svg-bottom {
+  position: fixed;
+  bottom: -175px;
+  left: 11px;
+  z-index: 20px;
+}
+body .svg-top {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 20px;
+}
+body .lines {
+  z-index: 10px;
+  position: fixed;
+}
+body .circle {
+  position: absolute;
+  right: 50px;
+  bottom: 60px;
+}
+
+#container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: white;
+  gap: 18px;
+  word-spacing: 8px;
+  text-align: center;
+  width: 400px;
+  margin: auto;
+}
+#container .topic {
+  font-size: x-large;
+}
+#container .secure {
+  font-size: 12px;
+}
+
+/*# sourceMappingURL=styles.css.map */
