@@ -11,16 +11,16 @@ body .svg-bottom {
   position: fixed;
   bottom: -175px;
   left: 11px;
-  z-index: 20px;
+  z-index: 20;
 }
 body .svg-top {
   position: fixed;
   top: 0;
   right: 0;
-  z-index: 20px;
+  z-index: 20;
 }
 body .lines {
-  z-index: 10px;
+  z-index: -40;
   position: fixed;
 }
 body .circle {
@@ -45,6 +45,18 @@ body .circle {
   font-size: x-large;
 }
 #container .secure {
+  font-size: 12px;
+}
+
+.input-container {
+  border: 1px dashed grey;
+  padding: 40px;
+}
+
+#form {
+  color: white;
+}
+#form .avatar {
   font-size: 12px;
 }
 

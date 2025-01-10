@@ -17,16 +17,16 @@ body {
     position: fixed;
     bottom: -175px;
     left: 11px;
-    z-index: 20px;
+    z-index: 20;
   }
   .svg-top{
     position: fixed;
     top: 0;
     right: 0;
-    z-index: 20px;
+    z-index: 20;
   }
   .lines{
-    z-index: $zindex;
+   z-index: -40;
     position: fixed;
   }
   .circle{
@@ -37,8 +37,8 @@ body {
   
 }
 
-#container{
-  display: flex;
+@mixin container{
+    display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
@@ -48,7 +48,16 @@ body {
   text-align: center;
   width: 400px;
   margin: auto;
+}
+@mixin flow{
+    display: flex;
+    justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
 
+#container{
+  @include container;
   .topic{
     font-size: $topic;
   }
@@ -57,4 +66,22 @@ body {
   
   }
 }
+
+.input-container{
+    border: 1px dashed grey;
+    padding: 40px;
+}
+
+
+#form {
+ color: $text-color;
+
+ 
+ .avatar{
+    font-size: $secure;
+}
+}
+
+
+
  
