@@ -142,9 +142,34 @@ input::placeholder{
 #details{
   @include flow;
 }
-
-
-
-
-
+ #name{
+  font-size: 5opx;
+  font-weight: bold;
+ }
+ #ticket-card{
+  display: none;
+}
+#form{
+display: block;
+}
+ #identity{
+  font-size: 25px;
+ }
  
+ @media only screen and (max-width: 500px) {
+  .svg-bottom{
+    position: fixed;
+    bottom: -800px;
+    width: 200px;
+    left: 50px;
+    z-index: -20;
+  }
+  .svg-top{
+    position: fixed;
+    top: 200px;
+    right: 0;
+    z-index: 20;
+    width: 130px;
+  
+  }
+ }

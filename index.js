@@ -1,7 +1,15 @@
 const dropArea = document.getElementById('drop-area');
     const fileInput = document.getElementById('fileElem');
     const gallery = document.getElementById('gallery');
-
+    const topic = document.getElementById("topic");
+    const emailedTicket = document.getElementById('emailed-ticket');
+    const idname = document.getElementById('name');
+    const git = document.getElementById('gitusername');
+    const user = document.getElementById('username');
+    const userImage = document.getElementById('user-image');
+    const uniqueid = document.getElementById('identity');
+    const ticket = document.getElementById('ticket-card');
+    let uploadedImageSrc = ""; 
     // Prevent default drag behaviors
     ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
         dropArea.addEventListener(eventName, preventDefaults, false);
@@ -47,10 +55,37 @@ const dropArea = document.getElementById('drop-area');
             const upload = document.getElementById('upload');
             const img = document.createElement('img');
             img.src = reader.result;
+            uploadedImageSrc = reader.result;
             gallery.removeChild(upload);
             gallery.appendChild(img);
-            img.style.width = '30px';
-            img.style.height = '30px';
+            img.style.width = '40px';
+            img.style.height = '40px';
+            img.style.borderRadius = '4px';
+            const button = document.createElement('div');
+            const remove = document.createElement('button');
+            remove.innerHTML = 'Remove';
+            const change = document.createElement('button');
+            change.innerHTML = 'Change';
+            button.appendChild(change);
+            button.appendChild(remove);
+            button.children[0].style.fontSize = '10px';
+            button.children[1].style.fontSize = '10px';
+            gallery.appendChild(button);
+            remove.addEventListener('click', () => {
+                gallery.removeChild(img);
+                gallery.removeChild(button);
+                gallery.appendChild(upload);
+            });
+            change.addEventListener('click', () => {
+                fileInput.value = "";
+                fileInput.click();
+            });
+            if(!upload){
+            document.getElementById('drop').style.display = 'none';
+            }
+            else{
+                document.getElementById('drop').style.display = 'block';
+            }
         };
     }
     
@@ -76,4 +111,35 @@ function handleForm(e) {
     x.innerHTML = "";
     emailAddress.style.borderColor = "";
 }
+const allFieldsFilled = Array.from(form.querySelectorAll('input')).every(input => input.value.trim() !== "");
+
+if (allFieldsFilled) {
+    displayTicket();
+    
+} else {
+  alert('Please fill in all fields.');
+}
+    
+}
+
+function displayTicket(){ 
+    const form = document.forms["ticket"]; 
+    if(ticket.style.display === "none"){
+        form.style.display = "none";
+        ticket.style.display = "block";
+    const email = form["email"].value.trim(); 
+    const fullName = document.getElementById("full-name").value;
+    topic.innerHTML = `Congrats, ${fullName}! <br/> Your ticket is ready.`;
+    emailedTicket.innerHTML = `<div style="margin-top: 20px">We've emailed your ticket to <span style="color:coral"> ${email}</span> and will send update in the run up of the event</div>`;
+    idname.innerHTML = fullName; 
+    user.innerHTML = ` ${git.value}`;
+
+    if(uploadedImageSrc){
+   console.log(userImage.setAttribute("href", uploadedImageSrc));
+    };
+    uniqueid.innerHTML = "#" + Math.floor(Math.random() * 100000);
+    }else{
+        ticket.style.display = "none";
+    }
+    
 }
