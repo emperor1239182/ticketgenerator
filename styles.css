@@ -28,6 +28,7 @@ body .circle {
   position: absolute;
   right: 50px;
   bottom: 60px;
+  z-index: -20;
 }
 
 #ticket {
@@ -37,6 +38,7 @@ body .circle {
   flex-direction: column;
   gap: 20px;
   margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 #container {
@@ -118,6 +120,7 @@ body .circle {
   flex-direction: column;
   gap: 20px;
   margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 #name {

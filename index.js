@@ -100,6 +100,14 @@ function handleForm(e) {
   const x = document.getElementById("info");
   const emailAddress = document.getElementById("email");
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const allFieldsFilled = Array.from(form.querySelectorAll('input')).every(input => input.value.trim() !== "");
+
+  if (allFieldsFilled) {
+    displayTicket();
+    
+} else {
+  alert('Please fill in all fields.');
+}
 
   if (!emailRegex.test(email)) {
     information.style.display = "block";
@@ -111,20 +119,12 @@ function handleForm(e) {
     x.innerHTML = "";
     emailAddress.style.borderColor = "";
 }
-const allFieldsFilled = Array.from(form.querySelectorAll('input')).every(input => input.value.trim() !== "");
 
-if (allFieldsFilled) {
-    displayTicket();
-    
-} else {
-  alert('Please fill in all fields.');
-}
     
 }
 
 function displayTicket(){ 
     const form = document.forms["ticket"]; 
-    if(ticket.style.display === "none"){
         form.style.display = "none";
         ticket.style.display = "block";
     const email = form["email"].value.trim(); 
@@ -138,8 +138,6 @@ function displayTicket(){
    console.log(userImage.setAttribute("href", uploadedImageSrc));
     };
     uniqueid.innerHTML = "#" + Math.floor(Math.random() * 100000);
-    }else{
-        ticket.style.display = "none";
     }
-    
-}
+
+
